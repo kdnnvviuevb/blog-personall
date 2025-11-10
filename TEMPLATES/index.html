@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Personal</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body class="html">
+    <header class="navbar">
+        <div class="navbar_logo">
+            <img src="../static/CETIS.png" alt="Logo de yordanbtc">Blog Personal
+        </div>
+        <ul class="navbar_navegacion" >
+            <li class="navbar_navegacion_item"><a href="#" class="navbar-link">Recientes</a></li>
+            <li class="navbar_navegacion_item"><a href="#" class="navbar-link">Calendario</a></li>
+        </ul>
+    </header>
+    <main class="main">
+        <section>
+            <h2>Agrega una nueva entrada</h2>
+            <form class="form" method="POST" name = "my_form">
+                <p class="form_input">
+                    <label class="form_label" for="titulo">Título</label>
+                    <input type="text" name="tit" id="titulo" class="title">
+                </p>
+                <p class="form_input">
+                    <label class="form_label" for="entry">Contenido:</label>
+                    <textarea name="content" id="entry"  class="form_textarea"></textarea>
+                </p>
+                <button type="submit" class="form_submit">Agregar</button>
+            </form>
+        </section>
+
+        <section>
+                <h2>Entradas Recientes</h2>
+                <article class="entry">
+                    <div>
+                        <h3 class="entry_title">
+                            Día aprender flask
+                        </h3>
+                        <time datetime="02-05-2025" class="entry_date">* 25-05-2025</time>
+                    </div>
+                    <p class="entry_content">
+                      HOY SOLO ME ENFOQUE EN TERMINAR LOS TRABAJOS DE FLASK DEL PROFE VILLAMIL
+                    </p>
+                </article>
+                {% for entrada in entradas %}
+                <article class="entry">
+                    <div>
+                        <h3 class="entry_title">
+                            {{ entrada.titulo }}
+                        </h3>
+                        <time datetime={{ entrada.fecha }} class="entry_date">* {{ entrada.fecha }}</time>
+                    </div>
+                    <p class="entry_content">
+                        {{ entrada.contenido }}
+                    </p>
+                </article>
+                {% endfor %}
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer_content">
+            <section class="left">
+                <a class="footer_item" href="">Creada por Rogeli</a>
+                <a class="footer_item" href="">o Mira nuestros otros proyectos</a>
+            </section>
+            <section class="rigth">
+                <div class="footer_colum">
+                    <a class="footer_item" href="">Recientes</a>
+                    <a class="footer_item" href="">Calendario</a>
+                </div>
+                <div class="footer_colum">
+                    <a class="footer_item" href="">Acerca de</a>
+                    <a class="footer_item" href="">Cómo fué hecho esto</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
